@@ -1,0 +1,97 @@
+{
+    "schema":"1.0",
+	"title":"Workflow",
+	"category":"Master",
+	"privilege":"*",
+	"blocked":false,
+	"rowlink":false,
+	"rowsPerPage":20,
+	"showExtraColumn":false,
+	"custombar":false,
+	"source":{
+	    "type":"sql",
+	    "table":"sys_workflows",
+	    "cols":"*",
+	    "where": {
+	        "guid":"#SESS_GUID#",
+	        "company_id":"#COMP_ID#",
+	        "blocked": "false"
+	    },
+	    "sort":"id asc",
+		"limit":20
+	},
+	"actions":{
+         "forms@workflows.main/new":{
+            "label":"Add WorkFlow",
+            "icon": "fa fa-plus",
+    		"class": "btn btn-info"
+        }
+    },
+	"buttons": {
+		 "infoview@workflows.main/{hashid}": {
+            "label":"View WorkFlow",
+			"icon": "fa fa-eye"
+		},
+		"forms@workflows.main/edit/{hashid}": {
+            "label":"Edit WorkFlow",
+			"icon": "fa fa-pencil"
+		}
+	},
+	"sidebar": {
+	    "type":"list",
+        "source":{
+            "sys_workflows.workflow_code":{
+                "type": "sql",
+				"table": "sys_workflows",
+				"cols": "sys_workflows.workflow_code as title,sys_workflows.workflow_code as value",
+				"where":{
+				    "guid":"#SESS_GUID#",
+        	        "company_id":"#COMP_ID#",
+        	        "blocked": "false"
+				},
+				"groupby":"sys_workflows.workflow_code",
+				"orderby":"sys_workflows.workflow_code asc"
+            }
+        }
+	},
+	"datagrid":{
+	    "id":{
+			"label":"ID",
+			"hidden":false,
+			"searchable":true,
+			"sortable":true,
+			"groupable":false,
+			"classes":"",
+			"style":"width:50px;",
+			"formatter":"text"
+		},
+		"workflow_code": {
+			"label": "Groupid",
+			"sortable":true,
+		    "searchable": true,
+		    "formatter":"pretty",
+		    "filter":{
+		        "type": "dataSelectorFromUniques",
+                "nofilter": "--",
+                "table": "sys_workflows",
+                "columns": "workflow_code,workflow_code"
+		    }
+		},
+		"from_status": {
+			"label": "From Status",
+			"sortable":true,
+		    "searchable": true
+		},
+		"to_status": {
+			"label": "To Status",
+			"sortable":true,
+		    "searchable": true
+		},
+		"assigned_to": {
+			"label": "Assigned Next",
+			"sortable":true,
+		    "searchable": true
+		}
+		
+	}
+}
