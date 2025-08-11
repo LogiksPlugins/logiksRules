@@ -31,7 +31,7 @@ body .pageComp.withFixedBar .pageCompContainer {
     /*            margin: 20px 0;*/
     height: 100%;
 }
-.rule-title {
+.rule-fields {
     height: 40px;
 }
 .condition-group {
@@ -185,7 +185,7 @@ body .pageComp.withFixedBar .pageCompContainer {
                 </div>
                 <br>
                 <!-- Input Fields Management Section -->
-                <div class="mb-4">
+                <div class="mb-4 rule-fields">
                     <h6 class="text-muted">Required Input Fields/Parameters *</h6>
                     <div class="row">
                         <div class="col-sm-12">
