@@ -31,7 +31,7 @@ body .pageComp.withFixedBar .pageCompContainer {
     /*            margin: 20px 0;*/
     height: 100%;
 }
-.rule-fields {
+.rule-fields input {
     height: 40px;
 }
 .condition-group {
