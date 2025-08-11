@@ -75,7 +75,7 @@ function loadRuleList() {
             $("#rulesListing").html("");
 
             $.each(data.Data, function(k, row) {
-                $("#rulesListing").append(`<li class='list-group-item' data-group='${row.rule_group}'><i class='fa fa-chevron-right pull-right'></i>${row.title}</li>`);
+                $("#rulesListing").append(`<li class='list-group-item' data-group='${row.rule_group}'><i class='fas fa-chevron-right pull-right'></i>${row.title}</li>`);
             });
         } else {
             $("#rulesListing").html("<h5 align=center>No Rules Found</h5>");
